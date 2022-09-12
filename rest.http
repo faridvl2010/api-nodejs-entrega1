@@ -1,0 +1,31 @@
+###
+GET http://localhost:9000/api HTTP/1.1
+
+###
+POST http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+
+{
+"nombre": "Farid",
+  "apellido": "Valiente",
+  "tipo de documento": "ti",
+  "numero de documento": "1010152996",
+  "estado": "a",
+  "fecha creacion":"2021-12-31 23:59:59"
+}
+
+###
+PATCH  http://localhost:9000/api/2 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "nombre": "Farid",
+  "apellido": "Valbuena",
+  "tipo de documento": "ti",
+  "numero de documento": "1010152996",
+  "estado": "a",
+  "fecha creacion":"2021-12-31 23:59:59"
+}

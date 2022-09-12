@@ -27,7 +27,7 @@ routes.post('/', (req, res) => {
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
-        conn.query('UPDATE put set ? WHERE id = ?', [req.body, req.params.id], (err, rows) => {
+        conn.query('UPDATE user set ? WHERE id = ?', [req.body, req.params.id], (err, rows) => {
             if (err) return res.send(err)
             res.send('user updated!')
         })
@@ -38,7 +38,7 @@ routes.patch('/:id', (req, res) => {
     let id = Number(req.params.id)
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
-        conn.query('UPTADE user set ? WHERE id = ?', [req.body, id], (err, rows) => {
+        conn.query('UPTADE user set state ="?" WHERE id = ?', [req.body, id], (err, rows) => {
             if (err) return res.send(err)
             res.send('inactive user')
         })

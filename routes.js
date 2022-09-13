@@ -23,7 +23,7 @@ routes.post('/', (req, res) => {
         })
     })
 })
-//Actualizar usuario
+//Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
@@ -38,9 +38,9 @@ routes.patch('/:id', (req, res) => {
     let id = Number(req.params.id)
     req.getConnection((err, conn) => {
         if (err) return res.send(err)
-        conn.query('UPTADE user set state ="?" WHERE id = ?', [req.body, id], (err, rows) => {
+        conn.query('UPDATE user set estado ="i" WHERE id = ?', [req.params.id], (err, rows) => {
             if (err) return res.send(err)
-            res.send('inactive user')
+            res.send('update inactive user')
         })
     })
 })

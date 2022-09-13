@@ -33,7 +33,7 @@ routes.put('/:id', (req, res) => {
         })
     })
 })
-//ACTUALIZAR ESTADO
+//ACTUALIZAR ESTADO de un atributo
 routes.patch('/:id', (req, res) => {
     let id = Number(req.params.id)
     req.getConnection((err, conn) => {

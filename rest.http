@@ -11,7 +11,7 @@ Content-Type: application/json
   "TYPE_DOCUMENT": "ti",
   "DOCUMENT": "1010152996",
   "STATE": "a",
-  "CREATION_DATE":"2021-12-31 23:59:59"
+  "CREATION_DATE": "2021/12/31 23:59:59"
 }
 
 ###

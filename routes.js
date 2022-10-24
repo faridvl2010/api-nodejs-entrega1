@@ -21,7 +21,7 @@ routes.post('/', async (req, res) => {
     const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE} = req.body
     const post = await prisma.usuarios.create({
         data:{
-            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, new Date(CREATION_DATE)
+            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE
         }
     })
     console.log(post)

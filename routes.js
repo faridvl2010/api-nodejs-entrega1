@@ -1,5 +1,9 @@
 const express = require('express')
 const routes = express.Router()
+const {PrismaClient} = require('@prisma/client')
+const prisma = new PrismaClient()
+routes.use(express.json())
+
 //TRAER USUARIO
 routes.get('/', (req, res) => {
     req.getConnection((err, conn) => {
@@ -13,15 +17,14 @@ routes.get('/', (req, res) => {
     })
 })
 //INSTERAR NUEVO 
-routes.post('/', (req, res) => {
-    console.log(req.body)
-    req.getConnection((err, conn) => {
-        if (err) return res.send(err)
-        conn.query('INSERT INTO user set ?', [req.body], (err, rows) => {
-            if (err) return res.send(err)
-            res.send('user add')
-        })
+routes.post('/', async (req, res) => {
+    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE} = req.body
+    const post = await prisma.usuarios.create({
+        data:{
+            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, new Date(CREATION_DATE)
+        }
     })
+    console.log(post)
 })
 //Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {

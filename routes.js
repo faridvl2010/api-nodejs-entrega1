@@ -87,13 +87,10 @@ routes.get('/pageActive/:num', async (req, res) => {
 })
 
 //Obtener historial de usuario
-routes.get('/page/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min
+routes.get('/historic/:num', async (req, res) => {
+    const user = req.params.num
+    const get = await prisma.historic_usuario.findMany({
+        where: {ID_USUARIO: user}
       })
     res.send(get)
 })

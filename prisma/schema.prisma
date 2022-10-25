@@ -67,6 +67,7 @@ model usuarios {
   ID_USUARIOS      Int                @id @default(autoincrement())
   NAME             String             @db.VarChar(50)
   LAST_NAME        String             @db.VarChar(50)
+  EMAIL            String             @db.VarChar(50)
   TYPE_DOCUMENT    String             @db.Char(2)
   DOCUMENT         String             @db.VarChar(25)
   STATE            String             @db.Char(2)

@@ -76,10 +76,10 @@ routes.patch('/:id', (req, res) => {
 
 //SIGN
 routes.post('/api/login', async (req, res) => {
-    const{NAME, LAST_NAME, EMAIL} = req.body
+    const{NAME, LAST_NAME, EMAIL,PASSWORD} = req.body
     const post = await prisma.usuarios.create({
         data:{
-            NAME, LAST_NAME, EMAIL
+            NAME, LAST_NAME, EMAIL,PASSWORD
         }
     })
     jwt.sign({data},'secretKey',{expiresIn: '60s'},(err,token)=>{
@@ -101,7 +101,8 @@ function verifyToken(req,res,next){
         res.sendStatus(403)
     }
 }
-routes.post("/api/post",verifyToken,(req , res)=>{
+
+routes.post("/api/posts",verifyToken,(req , res)=>{
     jwt.verify(req.token,'secretKey',(error , authData)=>{
         if (error) {
             res.sendStatus(403)

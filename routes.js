@@ -3,6 +3,7 @@ const routes = express.Router()
 const {PrismaClient} = require('@prisma/client')
 const prisma = new PrismaClient()
 const jwt  = require("jsonwebtoken")
+const encryp =require('bcryptjs')
 routes.use(express.json())
 
 //TRAER USUARIO
@@ -57,7 +58,8 @@ routes.post('/api/login', async (req, res) => {
     })
     jwt.sign({data},'secretKey',{expiresIn: '60s'},(err,token)=>{
         res.json({
-            token
+            token,
+            
         })
     })
     console.log(post)

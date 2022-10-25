@@ -5,23 +5,22 @@ const prisma = new PrismaClient()
 routes.use(express.json())
 
 //TRAER USUARIO
-routes.get('/', (req, res) => {
-    req.getConnection((err, conn) => {
-        if (err) return res.send(err)
-
-        conn.query('SELECT * FROM user;', (err, rows) => {
-            if (err) return res.send(err)
-
-            res.json(rows)
-        })
+routes.get('/', async (req, res) => {
+    const {NAME} = req.body
+    const get = await prisma.usuarios.get({
+        data:{
+            NAME
+        }
     })
+    res.send(get)
 })
+
 //INSTERAR NUEVO 
 routes.post('/', async (req, res) => {
-    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE} = req.body
+    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE} = req.body
     const post = await prisma.usuarios.create({
         data:{
-            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date(CREATION_DATE)
+            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
         }
     })
     console.log(post)

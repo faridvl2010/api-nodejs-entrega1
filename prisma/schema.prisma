@@ -52,6 +52,17 @@ model ussers_rol {
   @@index([ID_USUARIOS], map: "ID_USSUARIO_idx")
 }
 
+model log_connection {
+  ID_USSERS_ROL Int      @id @default(autoincrement())
+  INITIAL_DATE  DateTime @db.DateTime(0)
+  FINAL_DATE    DateTime @db.DateTime(0)
+  STATE         String   @db.Char(2)
+  ID_USUARIOS   Int
+  usuarios      usuarios @relation(fields: [ID_USUARIOS], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USSUARIOS")
+
+  @@index([ID_USUARIOS], map: "ID_USSUARIOS_idx")
+}
+
 model usuarios {
   ID_USUARIOS      Int                @id @default(autoincrement())
   NAME             String             @db.VarChar(50)
@@ -63,4 +74,5 @@ model usuarios {
   autentication    autentication[]
   historic_usuario historic_usuario[]
   ussers_rol       ussers_rol[]
+  log_connection   log_connection[]
 }

@@ -52,7 +52,6 @@ routes.patch('/:id', (req, res) => {
 routes.post('/api/login', async (req, res) => {
     const{NAME, LAST_NAME, EMAIL} = req.body
     const post = await prisma.usuarios.create({
-        
         data:{
             NAME, LAST_NAME, EMAIL
         }

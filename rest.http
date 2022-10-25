@@ -1,17 +1,22 @@
 ###
-GET http://localhost:9000/api HTTP/1.1
+GET http://localhost:9000/api/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "NAME": "Sergio"
+}
+
 
 ###
 POST http://localhost:3000/api HTTP/1.1
 Content-Type: application/json
 
 {
-  "NAME": "A",
-  "LAST_NAME": "E",
-  "TYPE_DOCUMENT": "ti",
-  "DOCUMENT": "1010152996",
-  "STATE": "a",
-  "CREATION_DATE": "2021/12/31 23:59:59"
+  "NAME": "Sergio",
+  "LAST_NAME": "Vargas",
+  "TYPE_DOCUMENT": "cc",
+  "DOCUMENT": "1049657905",
+  "STATE": "a"
 }
 
 ###

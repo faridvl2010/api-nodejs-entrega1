@@ -19,6 +19,16 @@ routes.get('/', async (req, res) => {
     res.send(get)
 })
 
+routes.get('/name', async (req, res) => {
+    const name = req.body.name
+    const get = await prisma.usuarios.findMany({
+        where: { 
+            NAME: name
+         }
+      })
+    res.send(get)
+})
+
 
 // //INSTERAR NUEVO 
 // routes.post('/', async (req, res) => {

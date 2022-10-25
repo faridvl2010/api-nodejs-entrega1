@@ -4,28 +4,53 @@ const {PrismaClient} = require('@prisma/client')
 const prisma = new PrismaClient()
 const jwt  = require("jsonwebtoken")
 routes.use(express.json())
+const bcryptjs = require('bcryptjs')
+routes.use(express.urlencoded({extended:false}))
 
 //TRAER USUARIO
 routes.get('/', async (req, res) => {
-    const {NAME} = req.body
-    const get = await prisma.usuarios.get({
-        data:{
-            NAME
-        }
-    })
+    const id = req.body.id
+    const get = await prisma.usuarios.findUnique({
+        where: { 
+            ID_USUARIOS: id
+         }
+      })
     res.send(get)
 })
 
-//INSTERAR NUEVO 
+
+// //INSTERAR NUEVO 
+// routes.post('/', async (req, res) => {
+//     const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE} = req.body
+//     const post = await prisma.usuarios.create({
+//         data:{
+//             NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
+//         }
+//     })
+//     console.log(post)
+// })
+
+//INSTERAR NUEVO con contraseña 
+
 routes.post('/', async (req, res) => {
-    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE} = req.body
+    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD} = req.body
     const post = await prisma.usuarios.create({
         data:{
             NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
         }
     })
+    let passwordhash = await bcryptjs.hash(PASSWORD, 8)
+    let id = post.ID_USUARIOS   
+    const postpass = await prisma.autentication.create({
+        data:{
+            ID_USUARIO:id, CREDENTIAL:"a", HASH:passwordhash, STATE:"a"
+        }
+    })
     console.log(post)
+    console.log(postpass)
 })
+
+
 //Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {
@@ -36,6 +61,7 @@ routes.put('/:id', (req, res) => {
         })
     })
 })
+
 //ACTUALIZAR ESTADO de un atributo
 routes.patch('/:id', (req, res) => {
     let id = Number(req.params.id)
@@ -47,6 +73,7 @@ routes.patch('/:id', (req, res) => {
         })
     })
 })
+
 //SIGN
 routes.post('/api/login', async (req, res) => {
     const{NAME, LAST_NAME, EMAIL} = req.body

@@ -60,43 +60,6 @@ routes.post('/', async (req, res) => {
     console.log(postpass)
 })
 
-<<<<<<< HEAD
-=======
-//Obtener página de usuario
-routes.get('/page/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min
-      })
-    res.send(get)
-})
-
-//Obtener página de usuario activo
-routes.get('/pageActive/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min,
-        where: {STATE: "a"}
-      })
-    res.send(get)
-})
-
-//Obtener historial de usuario
-routes.get('/historic/:num', async (req, res) => {
-    const user = req.params.num
-    const get = await prisma.historic_usuario.findMany({
-        where: {ID_USUARIO: user}
-      })
-    res.send(get)
-})
-
->>>>>>> d0e86a02656b87b611d3251f8a934c70d8be23c2
 //Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {

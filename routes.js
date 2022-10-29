@@ -41,13 +41,14 @@ routes.get('/name', async (req, res) => {
 //     console.log(post)
 // })
 
+
 //INSTERAR NUEVO con contraseña 
 
 routes.post('/', async (req, res) => {
-    const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD} = req.body
+    const{NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD} = req.body
     const post = await prisma.usuarios.create({
         data:{
-            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
+            NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
         }
     })
     let passwordhash = await bcryptjs.hash(PASSWORD, 8)

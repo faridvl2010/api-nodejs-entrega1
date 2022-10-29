@@ -29,21 +29,19 @@ routes.get('/name', async (req, res) => {
     res.send(get)
 })
 
-
-// //INSTERAR NUEVO 
-// routes.post('/', async (req, res) => {
-//     const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE} = req.body
-//     const post = await prisma.usuarios.create({
-//         data:{
-//             NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
-//         }
-//     })
-//     console.log(post)
-// })
+ //INSTERAR NUEVO 
+ routes.post('/', async (req, res) => {
+       const{NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE} = req.body
+        const post = await prisma.usuarios.create({
+         data:{
+            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
+        }
+    })
+    console.log(post)
+})
 
 
 //INSTERAR NUEVO con contraseña 
-
 routes.post('/', async (req, res) => {
     const{NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD} = req.body
     const post = await prisma.usuarios.create({
@@ -62,6 +60,8 @@ routes.post('/', async (req, res) => {
     console.log(postpass)
 })
 
+<<<<<<< HEAD
+=======
 //Obtener página de usuario
 routes.get('/page/:num', async (req, res) => {
     const page = req.params.num
@@ -96,6 +96,7 @@ routes.get('/historic/:num', async (req, res) => {
     res.send(get)
 })
 
+>>>>>>> d0e86a02656b87b611d3251f8a934c70d8be23c2
 //Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {
@@ -120,23 +121,21 @@ routes.patch('/:id', (req, res) => {
 })
 
 //SIGN
-routes.post('/api/login', async (req, res) => {
-    const{NAME, LAST_NAME, EMAIL,PASSWORD} = req.body
-    const post = await prisma.usuarios.create({
-        data:{
-            NAME, LAST_NAME, EMAIL,PASSWORD
-        }
-    })
-    jwt.sign({data},'secretKey',{expiresIn: '60s'},(err,token)=>{
-        res.json({
-            token,
-            
-        })
-    })
-    console.log(post)
+routes.route('/login').post( async (req, res) => {
+          try {
+            const{EMAIL,PASSWORD} = req.body
+            const search = await routes.findOne({EMAIL})
+            const tokesession = await verifyToken(req.body)
+          } catch (error) {
+          }
+    //jwt.sign({data},'secretKey',{expiresIn: '60s'},(err,token)=>{
+    //    res.json({
+    //        token
+    //   })
+    //})
 })
 
-//authorizacion: Bearer <token>
+//Authorizacion: Bearer <token>
 function verifyToken(req,res,next){
     const bearerHeader= req.headers['authorizacion']
     if (typeof bearerHeader != 'undefined') {

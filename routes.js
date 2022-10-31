@@ -60,50 +60,6 @@ routes.post('/', async (req, res) => {
     console.log(postpass)
 })
 
-<<<<<<< HEAD
-//Obtener página de usuario
-routes.get('/page/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min
-      })
-    res.send(get)
-})
-
-//Obtener página de usuario activo
-routes.get('/pageActive/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min,
-        where: {STATE: "a"}
-      })
-    res.send(get)
-})
-
-//Obtener historial de usuario
-routes.get('/historic/:num', async (req, res) => {
-    const user = req.params.num
-    const get = await prisma.historic_usuario.findMany({
-        where: {ID_USUARIO: user}
-      })
-    res.send(get)
-})
-
-//Actualizar usuario de active a inactive
-routes.put('/:id', (req, res) => {
-    req.getConnection((err, conn) => {
-        if (err) return res.send(err)
-        conn.query('UPDATE user set ? WHERE id = ?', [req.body, req.params.id], (err, rows) => {
-            if (err) return res.send(err)
-            res.send('user updated!')
-        })
-=======
 //Actualizar usuario
 routes.put('/:id', async (req, res) => {
     const { NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body
@@ -128,7 +84,6 @@ routes.put('/:id', async (req, res) => {
             ID_USUARIO: id, DATE: new Date(), IP: findIP.then(ip => document.write('IP: ', ip)).catch(e => console.error(e)),
             PREV_DATA: get, CURENT_DATA: update,
         }
->>>>>>> c36d32bd77d32613ef64c00312bb03ed9bce2084
     })
 })
 

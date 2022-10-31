@@ -98,7 +98,7 @@ routes.patch('/:id', (req, res) => {
         })
     })
 })
-
+/*
 //SIGN
 routes.route('/login').post(async (req, res) => {
     try {
@@ -137,4 +137,5 @@ routes.post("/api/posts", verifyToken, (req, res) => {
         }
     })
 })
+*/
 module.exports = routes

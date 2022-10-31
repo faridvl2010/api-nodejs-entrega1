@@ -23,6 +23,8 @@ model autentication {
 model historic_usuario {
   ID_HISTORIC_USSERS Int      @id @default(autoincrement())
   ID_USUARIOS        Int
+  PREV_DATA          String   @db.VarChar(200)
+  CURRENT_DATA       String   @db.VarChar(200)
   DATE               DateTime @db.DateTime(0)
   IP                 String   @db.VarChar(15)
   usuarios           usuarios @relation(fields: [ID_USUARIOS], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USUARIOS")

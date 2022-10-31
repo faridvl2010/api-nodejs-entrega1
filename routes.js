@@ -59,8 +59,6 @@ routes.post('/', async (req, res) => {
     console.log(postpass)
 })
 
-<<<<<<< HEAD
-=======
 //Obtener página de usuario
 routes.get('/page/:num', async (req, res) => {
     const page = req.params.num
@@ -95,7 +93,6 @@ routes.get('/historic/:num', async (req, res) => {
     res.send(get)
 })
 
->>>>>>> d0e86a02656b87b611d3251f8a934c70d8be23c2
 //Actualizar usuario de active a inactive
 routes.put('/:id', (req, res) => {
     req.getConnection((err, conn) => {

@@ -1,16 +1,17 @@
-<form>
+<div class="navbar justify-content-center">
+    <form>
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
           <input type="text" id="form6Example1" class="form-control" />
-          <label class="form-label" for="form6Example1">First name</label>
+          <label class="form-label" for="form6Example1">Nombre</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
           <input type="text" id="form6Example2" class="form-control" />
-          <label class="form-label" for="form6Example2">Last name</label>
+          <label class="form-label" for="form6Example2">Apellido</label>
         </div>
       </div>
     </div>
@@ -30,16 +31,36 @@
     <div class="form-outline mb-4">
         <input type="password" id="form6Example6" class="form-control" />
         <label class="form-label" for="form6Example6">Confirmar contraseña</label>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <select class="form-control">
+                <option>T.I.</option>
+                <option>C.C.</option>
+                <option>C.E.</option>
+              </select>
+            <label class="form-label" for="form6Example1">Tipo de documento</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="number" id="form6Example2" class="form-control" />
+            <label class="form-label" for="form6Example2">Numero de documento</label>
+          </div>
+        </div>
       </div>
   
 
   
     <!-- Checkbox -->
     <div class="form-check d-flex justify-content-center mb-4">
-      <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-      <label class="form-check-label" for="form6Example8"> Create an account? </label>
+      
+      <label class="form-check-label" for="form6Example8"> ¿Desea cear una cuenta nueva? </label>
     </div>
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Crear</button>
+    <button type="submit" class="btn btn-outline-secondary btn-block mb-4">Atras</button>
   </form>
+</div>

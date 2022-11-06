@@ -7,14 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { AssignRolesAdminComponent } from './assign-roles-admin/assign-roles-admin.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 const appRoutes:Routes=[
   
   {path: 'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'assignRolesAdmin',component:AssignRolesAdminComponent},
-  {path:'viewUser',component:ViewUserComponent}
-
+  {path:'viewUser',component:ViewUserComponent},
+  {path:'registerUser',component:RegisterUserComponent}
 ];
 
 @NgModule({
@@ -23,7 +24,8 @@ const appRoutes:Routes=[
     LoginComponent,
     ViewUserComponent,
     AssignRolesAdminComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,

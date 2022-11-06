@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+  volverHome(){
+    this.router.navigate(['home'])
   }
 
 }

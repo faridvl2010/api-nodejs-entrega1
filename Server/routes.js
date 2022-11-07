@@ -160,6 +160,17 @@ routes.get('/rol', async (req, res) => {
     })
 })
 
+//editar rol
+routes.patch('/rol', async (req, res) => {
+    const { ID_ROL, NAME, DESCRIPTION, STATE} = req.body
+    const set = await prisma.rol.update({
+        where:{ID_ROL: ID_ROL},
+        data: {
+            NAME, DESCRIPTION, STATE
+        }
+    })
+})
+
 //agregar rol a un usuario
 routes.post('/userRol', async (req, res) =>{
     const { ID_USUARIOS, ID_ROL, STATE} = req.body

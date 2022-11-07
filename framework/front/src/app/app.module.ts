@@ -8,6 +8,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { AssignRolesAdminComponent } from './assign-roles-admin/assign-roles-admin.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes:Routes=[
   
@@ -29,7 +30,8 @@ const appRoutes:Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

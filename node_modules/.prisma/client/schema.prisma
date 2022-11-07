@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model autentication {
+  ID_AUTH    Int      @id @default(autoincrement())
+  ID_USUARIO Int
+  CREDENTIAL String   @db.Char(2)
+  HASH       String   @db.VarChar(60)
+  STATE      String   @db.Char(2)
+  usuarios   usuarios @relation(fields: [ID_USUARIO], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USUARIO")
+
+  @@index([ID_USUARIO], map: "ID_USUARIO_idx")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model historic_usuario {
+  ID_HISTORIC_USSERS Int      @id @default(autoincrement())
+  ID_USUARIOS        Int
+  PREV_DATA          String   @db.VarChar(200)
+  CURRENT_DATA       String   @db.VarChar(200)
+  DATE               DateTime @db.DateTime(0)
+  IP                 String   @db.VarChar(15)
+  usuarios           usuarios @relation(fields: [ID_USUARIOS], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USUARIOS")
+
+  @@index([ID_USUARIOS], map: "ID_USUARIO_idx")
+}
+
+model rol {
+  ID_ROL        Int          @id @default(autoincrement())
+  NAME          String       @db.VarChar(50)
+  DESCRIPTION   String       @db.VarChar(100)
+  STATE         String       @db.Char(2)
+  CREATION_DATE DateTime     @db.DateTime(0)
+  ussers_rol    ussers_rol[]
+}
+
+model ussers_rol {
+  ID_USSERS_ROL Int      @id @default(autoincrement())
+  CREATION_DATE DateTime @db.DateTime(0)
+  STATE         String   @db.Char(2)
+  ID_USUARIOS   Int
+  ID_ROL        Int
+  rol           rol      @relation(fields: [ID_ROL], references: [ID_ROL], onDelete: NoAction, onUpdate: NoAction, map: "ID_ROL")
+  usuarios      usuarios @relation(fields: [ID_USUARIOS], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USSUARIO")
+
+  @@index([ID_ROL], map: "ID_ROL_idx")
+  @@index([ID_USUARIOS], map: "ID_USSUARIO_idx")
+}
+
+model log_connection {
+  ID_USSERS_ROL Int      @id @default(autoincrement())
+  INITIAL_DATE  DateTime @db.DateTime(0)
+  FINAL_DATE    DateTime @db.DateTime(0)
+  STATE         String   @db.Char(2)
+  ID_USUARIOS   Int
+  usuarios      usuarios @relation(fields: [ID_USUARIOS], references: [ID_USUARIOS], onDelete: NoAction, onUpdate: NoAction, map: "ID_USSUARIOS")
+
+  @@index([ID_USUARIOS], map: "ID_USSUARIOS_idx")
+}
+
+model usuarios {
+  ID_USUARIOS      Int                @id @default(autoincrement())
+  NAME             String             @db.VarChar(50)
+  LAST_NAME        String             @db.VarChar(50)
+  EMAIL            String             @db.VarChar(50)
+  TYPE_DOCUMENT    String             @db.Char(2)
+  DOCUMENT         String             @db.VarChar(25)
+  STATE            String             @db.Char(2)
+  CREATION_DATE    DateTime           @db.DateTime(0)
+  autentication    autentication[]
+  historic_usuario historic_usuario[]
+  ussers_rol       ussers_rol[]
+  log_connection   log_connection[]
+}

@@ -6,7 +6,7 @@ import {
 import {
   checkExistingRole,
   checkExistingUser,
-} from "../middlewares/verifySignup.js";
+} from "../backend/src/middlewares/verifySignup.js";
 
 const router = Router();
 

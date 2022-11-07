@@ -8,3 +8,5 @@ export interface Usuario {
     STATE:String,
     CREATION_DATE:Date
 }
+
+export interface SendUsuario extends Omit<Usuario,'id'>{}

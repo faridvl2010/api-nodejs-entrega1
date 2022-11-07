@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserServices } from '../services/user-services.service'
 
 @Component({
   selector: 'app-register-user',
@@ -7,13 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  constructor(private employeService: UserServices){}
 
   ngOnInit(): void {
+    this.employeService.getUsers()
   }
-  volverHome(){
-    this.router.navigate(['home'])
-  }
+  // constructor(private router:Router) { }
+
+  // ngOnInit(): void {
+  // }
+  // volverHome(){
+  //   this.router.navigate(['home'])
+  // }
 
 }
+
+
+

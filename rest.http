@@ -22,13 +22,13 @@ Content-Type: application/json
 
 //obtener pagina de usuarios
 ###
-GET http://localhost:3000/api/page/2 HTTP/1.1
+GET http://localhost:3000/api/page/1 HTTP/1.1
 Content-Type: application/json
 
 
 // obtener usuarios activos
 ###
-GET http://localhost:3000/api/pageActive/2 HTTP/1.1
+GET http://localhost:3000/api/pageActive/1 HTTP/1.1
 Content-Type: application/json
 
 # ###
@@ -37,7 +37,7 @@ Content-Type: application/json
 
 //agregar usuario
 ###
-POST http://localhost:3000/api HTTP/1.1
+PATCH  http://localhost:3000/api/1 HTTP/1.1
 Content-Type: application/json
 
 {

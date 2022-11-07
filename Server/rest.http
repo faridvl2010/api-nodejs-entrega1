@@ -73,7 +73,7 @@ Content-Type: application/json
 
 {
   "ID_USUARIOS": 1,
-  "ID_ROL": 1,
+  "ID_ROL": 2,
   "STATE": "a"
 }
 

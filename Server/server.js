@@ -16,8 +16,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', routes)
 
-
 //Runnig
 app.listen(app.get('port'), () => {
     console.log('server running on port ', app.get('port'))
-})
+}) 

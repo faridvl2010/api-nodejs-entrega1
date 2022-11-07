@@ -134,6 +134,57 @@ routes.get('/page/:num', async (req, res) => {
       })
     res.send(get)
 })
+
+//Agregar rol
+routes.post('/rol', async (req, res) => {
+    const { NAME, DESCRIPTION, STATE} = req.body
+    const post = await prisma.rol.create({
+        data: {
+            NAME, DESCRIPTION, STATE, CREATION_DATE: new Date()
+        }
+    })
+    console.log(post)
+})
+
+//obtener todos los roles
+routes.get('/rols', async (req, res) => {
+    const get = await prisma.rol.findMany()
+    res.send(get)
+})
+
+//obtener rol por id
+routes.get('/rol', async (req, res) => {
+    const { ID_ROL} = req.body
+    const get = await prisma.rol.findMany({
+        where:{ID_ROL: ID_ROL}
+    })
+})
+
+//agregar rol a un usuario
+routes.post('/userRol', async (req, res) =>{
+    const { ID_USUARIOS, ID_ROL, STATE} = req.body
+    const post = await prisma.ussers_rol.create({
+        data: {
+            CREATION_DATE: new Date(), STATE, ID_USUARIOS, ID_ROL,  
+        }
+    })
+    console.log(post)
+})
+
+//ver roles de un usuario ed
+routes.get('/userRol', async (req, res) => {
+    const { ID_USUARIOS} = req.body
+    const get = await prisma.ussers_rol.findMany({
+        where:{ID_USUARIOS: ID_USUARIOS}
+    })
+    // console.log(relation)
+    // const get = await prisma.rol.findMany({
+    //     where:{ID_ROL: 1}
+    // })
+    res.send(get)
+})
+
+
 /*
 //SIGN
 routes.route('/login').post(async (req, res) => {

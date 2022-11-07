@@ -11,7 +11,9 @@ export class RegisterUserComponent implements OnInit {
   constructor(private employeService: UserServices){}
 
   ngOnInit(): void {
-    this.employeService.getUsers()
+    this.employeService.getUsers().subscribe(
+      res => console.log(res)
+    )
   }
   // constructor(private router:Router) { }
 

@@ -50,18 +50,38 @@ Content-Type: application/json
   "PASSWORD":"12345"
 }
 
-# ###
-# PATCH  http://localhost:9000/api/2 HTTP/1.1
+//agregar rol
+###
+POST http://localhost:3000/api/rol HTTP/1.1
+Content-Type: application/json
 
-# ###
-# PUT http://localhost:000/api/1 HTTP/1.1
-# Content-Type: application/json
+{
+  "NAME": "Admin",
+  "DESCRIPTION": "el rol del admin",
+  "STATE": "a"
+}
 
-# {
-#   "nombre": "Farid",
-#   "apellido": "Valbuena",
-#   "tipo de documento": "ti",
-#   "numero de documento": "1010152996",
-#   "estado": "a",
-#   "fecha creacion":"2021-12-31 23:59:59"
-# }
+//ver totalidad de roles
+###
+GET  http://localhost:3000/api/rol HTTP/1.1
+Content-Type: application/json
+
+//agregar rol a usuario
+###
+POST http://localhost:3000/api/userRol HTTP/1.1
+Content-Type: application/json
+
+{
+  "ID_USUARIOS": 1,
+  "ID_ROL": 1,
+  "STATE": "a"
+}
+
+//ver roles de usuario
+###
+GET http://localhost:3000/api/userRol HTTP/1.1
+Content-Type: application/json
+
+{
+  "ID_USUARIOS": 1
+}

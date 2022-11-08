@@ -8,12 +8,14 @@ import { UserServices } from '../services/user-services.service'
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
+
+
   constructor(private userService: UserServices){}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      res => console.log(res)
-    )
+    // this.userService.getUsers().subscribe(
+    //   res => console.log(res)
+    // )
   }
   // constructor(private router:Router) { }
 
@@ -22,6 +24,11 @@ export class RegisterUserComponent implements OnInit {
   // volverHome(){
   //   this.router.navigate(['home'])
   // }
+
+  sendData(values:any) {
+    this.userService.registerUser()
+    alert('name: '+ values.names)
+  }
 
 }
 

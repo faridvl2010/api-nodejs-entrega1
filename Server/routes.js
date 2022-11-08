@@ -8,9 +8,11 @@ routes.use(express.json())
 const bcryptjs = require('bcryptjs')
 routes.use(express.urlencoded({ extended: false }))
 
+const cors = require('cors')
+routes.use(cors())
+
 //TRAER USUARIO
 routes.get('/', async (req, res) => {
-    const id = req.body.id
     const get = await prisma.usuarios.findUnique({
         where: {
             ID_USUARIOS: id
@@ -105,7 +107,7 @@ routes.get('/page/:num', async (req, res) => {
     const page = req.params.num
     const min = ((page-1)*100)
     const get = await prisma.usuarios.findMany({
-        take: 100,
+        take: 10,
         skip: min
       })
     res.send(get)
@@ -182,16 +184,12 @@ routes.post('/userRol', async (req, res) =>{
     console.log(post)
 })
 
-//ver roles de un usuario ed
+//ver roles de un usuario
 routes.get('/userRol', async (req, res) => {
     const { ID_USUARIOS} = req.body
     const get = await prisma.ussers_rol.findMany({
         where:{ID_USUARIOS: ID_USUARIOS}
     })
-    // console.log(relation)
-    // const get = await prisma.rol.findMany({
-    //     where:{ID_ROL: 1}
-    // })
     res.send(get)
 })
 

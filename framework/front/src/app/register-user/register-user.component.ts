@@ -8,10 +8,10 @@ import { UserServices } from '../services/user-services.service'
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-  constructor(private employeService: UserServices){}
+  constructor(private userService: UserServices){}
 
   ngOnInit(): void {
-    this.employeService.getUsers().subscribe(
+    this.userService.getUsers().subscribe(
       res => console.log(res)
     )
   }

@@ -6,9 +6,9 @@ import {HttpClient} from '@angular/common/http'
 })
 export class UserServices {
 
-  URL_API = 'http://localhost:3000/api'
-  constructor(private http: HttpClient) { }
+  URL_API = 'http://localhost:3000/api/'
 
+  constructor(private http: HttpClient) { }
   getUsers(){
     return this.http.get(this.URL_API);
   }

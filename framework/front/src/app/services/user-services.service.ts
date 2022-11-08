@@ -15,11 +15,12 @@ export class UserServices {
     return this.http.get(this.URL_API);
   }
 
-  registerUser(){
-    alert('llamada')
+
+  registerUser(NAME:String,LAST_NAME:String){
+    //parametros de todo lo que tiene que enviar
     let registerData:SendUsuario= {
-    NAME: "prueba",
-    LAST_NAME: "pass",
+    NAME,
+    LAST_NAME,
     EMAIL: "123@ashi.com",
     TYPE_DOCUMENT: "cc",
     DOCUMENT: "12",

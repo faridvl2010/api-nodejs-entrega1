@@ -26,7 +26,12 @@ export class RegisterUserComponent implements OnInit {
   // }
 
   sendData(values:any) {
-    this.userService.registerUser()
+    this.userService.registerUser(
+      values.names,
+      values.apellidos
+    )
+    //TO DO: valide contraseñas iguales 
+    // 
     alert('name: '+ values.names)
   }
 

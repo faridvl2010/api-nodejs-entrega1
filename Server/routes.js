@@ -45,6 +45,7 @@ routes.post('/', async (req, res) => {
 
 //INSTERAR NUEVO con contraseña 
 routes.post('/', async (req, res) => {
+    console.log('llega')
     const { NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD } = req.body
     const post = await prisma.usuarios.create({
         data: {

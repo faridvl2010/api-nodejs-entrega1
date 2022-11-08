@@ -5,8 +5,8 @@ export interface Usuario {
     EMAIL: String,
     TYPE_DOCUMENT: String,
     DOCUMENT:String,
-    STATE:String,
-    CREATION_DATE:Date
+    STATE:String
+    PASSWORD:string
 }
 
-export interface SendUsuario extends Omit<Usuario,'id'>{}
+export interface SendUsuario extends Omit<Usuario,'ID_USUARIOS'> {}

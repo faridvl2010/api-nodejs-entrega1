@@ -31,16 +31,16 @@ routes.get('/name', async (req, res) => {
     res.send(get)
 })
 
-//INSTERAR NUEVO 
-routes.post('/', async (req, res) => {
-    const { NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body
-    const post = await prisma.usuarios.create({
-        data: {
-            NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
-        }
-    })
-    console.log(post)
-})
+// //INSTERAR NUEVO 
+// routes.post('/', async (req, res) => {
+//     const { NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body
+//     const post = await prisma.usuarios.create({
+//         data: {
+//             NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE, CREATION_DATE: new Date()
+//         }
+//     })
+//     console.log(post)
+// })
 
 
 //INSTERAR NUEVO con contraseña 

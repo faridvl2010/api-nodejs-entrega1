@@ -18,7 +18,8 @@ const appRoutes:Routes=[
   {path:'login',component:LoginComponent},
   {path:'assignRolesAdmin',component:AssignRolesAdminComponent},
   {path:'viewUser',component:ViewUserComponent},
-  {path:'registerUser',component:RegisterUserComponent}
+  {path:'registerUser',component:RegisterUserComponent},  
+  {path:'adminUsers',component:AdminUsersComponent}
 ];
 
 @NgModule({

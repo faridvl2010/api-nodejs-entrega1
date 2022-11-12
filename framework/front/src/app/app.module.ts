@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const appRoutes:Routes=[
   
@@ -27,7 +28,8 @@ const appRoutes:Routes=[
     ViewUserComponent,
     AssignRolesAdminComponent,
     HomeComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,

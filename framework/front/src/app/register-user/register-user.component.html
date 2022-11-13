@@ -22,35 +22,35 @@
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form6Example5" class="form-control" />
+          <input type="email" id="form6Example5" class="form-control" name="Email" ngModel/>
           <label class="form-label" for="form6Example5">Correo electronico</label>
         </div>
 
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="password" id="form6Example3" class="form-control" />
+          <input type="password" id="form6Example3" class="form-control" name="PasswordOne" ngModel/>
           <label class="form-label" for="form6Example3">Contraseña</label>
         </div>
         <!-- Number input -->
         <div class="form-outline mb-4">
-          <input type="password" id="form6Example6" class="form-control" />
+          <input type="password" id="form6Example6" class="form-control" name="PasswordTwo" ngModel/>
           <label class="form-label" for="form6Example6">Confirmar contraseña</label>
         </div>
         <div class="row">
           <div class="col-3">
             <div class="form-outline">
-              <select class="form-control">
-                <option>T.I.</option>
-                <option>C.C.</option>
-                <option>C.E.</option>
+              <select class="form-control" name="type" ngModel>
+                <option name="TI">T.I.</option>
+                <option name="CC">C.C.</option>
+                <option name="CE">C.E.</option>
               </select>
               <label class="form-label" for="form6Example1">Tipo de documento</label>
             </div>
           </div>
           <div class="col-9">
             <div class="form-outline">
-              <input type="number" id="form6Example2" class="form-control" />
-              <label class="form-label" for="form6Example2">Número de documento</label>
+              <input type="number" id="form6Example7" class="form-control" name="docNum" ngModel/>
+              <label class="form-label" for="form6Example7">Número de documento</label>
             </div>
           </div>
         </div>

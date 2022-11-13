@@ -26,17 +26,17 @@ export class RegisterUserComponent implements OnInit {
   // }
 
   sendData(values:any) {
-    // this.userService.registerUser(
-    //   values.names,
-    //   values.apellidos
-    // )
-    //TO DO: valide contraseñas iguales 
-    // 
-    // alert('Las contraseñas no coinciden')
+    
+    alert('Las contraseñas no coinciden')
     if(String(values.PasswordOne) == String(values.PasswordTwo)){
-      console.log('Las contraseñas coinciden')
-      console.log(values.PasswordOne)
-      console.log(values.PasswordTwo)
+      // this.userService.registerUser(
+      //   values.names,
+      //   values.apellidos,
+      //   values.Email,
+      //   values.type,
+          
+      // )
+      console.log(values.type)
     }
     else {
       alert('Las contraseñas no coinciden')

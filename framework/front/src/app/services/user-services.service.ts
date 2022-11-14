@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { SendUsuario } from '../models/Usuario';
-import { UsuarioLog } from '../models/UsuarioLog';
+import { SendUsuario, GetUsuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -36,13 +35,13 @@ export class UserServices {
   }
 
   // pendiente conexion con login
-  // logUser(EMAIL: String, PASSWORD: string) {
-  //   let getUser: UsuarioLog = {
+  // logUser(EMAIL: string, PASSWORD: string) {
+  //   let getUsr: GetUsuario = {
   //     EMAIL,
   //     PASSWORD
   //   }
 
-  //   this.http.get(this.URL_API + "", getUser).
+  //   this.http.get(this.URL_API + "/login", getUsr).
   //     subscribe(res => {
   //       alert(res)
   //     })

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
   sendData(values: any) {
-        // this.userService.getUser(
+        // this.userService.logUser(
         //   values.Email,
         //   values.PasswordOne,
         // )

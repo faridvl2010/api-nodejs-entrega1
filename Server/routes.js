@@ -33,6 +33,18 @@ routes.get('/name', async (req, res) => {
     res.send(get)
 })
 
+//traer usuario por correo contraseña
+// routes.get('/login', async (req, res) => {
+//     const {email, password} = req.body.name
+//     const get = await prisma.usuarios.findMany({
+//         where: {
+//             EMAIL: email, 
+//             PASSWORD:password
+//         }
+//     })
+//     res.send(get)
+// })
+
 // //INSTERAR NUEVO 
 // routes.post('/', async (req, res) => {
 //     const { NAME, LAST_NAME, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body

@@ -1,6 +1,7 @@
 export interface UsuarioLog {
-    EMAIL: String;
-    PASSWORD:string;
+    ID:string,
+    EMAIL: String,
+    PASSWORD:string
 }
 
-export interface UsuarioLog{}
+export interface GetUser extends Omit<UsuarioLog,'ID'>{}

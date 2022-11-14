@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         try {
           console.log(values.Email)
           console.log(values.pass)
-          if (values.Email == "" || values.pass == "" || values.Email == "" ) {
+          if (values.Email == "" || values.pass == "") {
             alert('Faltan campos por llenar')
           }
         } catch (error) {

@@ -50,7 +50,6 @@ export class RegisterUserComponent implements OnInit {
       }
     }
   }
-
 }
 
 

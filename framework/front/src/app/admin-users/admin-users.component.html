@@ -21,14 +21,16 @@
         <th>Apellido</th>
         <th>Email</th>
         <th>Estado</th>
+        <th>Documento</th>
       </tr>
     </thead>
     <tbody id="myTable">
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>a</td>
+      <tr *ngFor="let user of userService.users">
+        <td>{{user.NAME}}</td>
+        <td>{{user.LAST_NAME}}</td>
+        <td>{{user.EMAIL}}</td>
+        <td>{{user.STATE}}</td>
+        <td>{{user.TYPE_DOCUMENT}} : {{user.DOCUMENT}}</td>
       </tr>
       
         <ul class="pagination ">

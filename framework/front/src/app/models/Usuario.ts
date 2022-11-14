@@ -1,12 +1,12 @@
 export interface Usuario {
-    ID_USUARIOS: number;
-    NAME: String;
-    LAST_NAME: String;
-    EMAIL: String;
-    TYPE_DOCUMENT: String;
-    DOCUMENT:String;
-    STATE:String;
-    PASSWORD:string;
+    ID_USUARIOS: number,
+    NAME: string,
+    LAST_NAME: String,
+    EMAIL: string,
+    TYPE_DOCUMENT: string,
+    DOCUMENT:string,
+    STATE:string,
+    PASSWORD:string,
 }
 
 export interface Usuario {}

@@ -6,18 +6,18 @@ import { Usuario, SendUsuario, GetUsuario } from '../models/Usuario';
   providedIn: 'root'
 })
 export class UserServices {
-
   URL_API = 'http://localhost:3000/api/'
-
+  
+  users : Usuario[] = [];
   constructor(private http: HttpClient) { }
 
   // users = Usuario[]
 
   getUsers(index: String) {
-    return this.http.get(this.URL_API+"page/"+index);
+    return this.http.get<Usuario[]>(this.URL_API+"page/"+index);
   }
 
-  registerUser(NAME: String, LAST_NAME: String, EMAIL: String, TYPE_DOCUMENT: string, DOCUMENT: String, PASSWORD: string) {
+  registerUser(NAME: string, LAST_NAME: string, EMAIL: string, TYPE_DOCUMENT: string, DOCUMENT: string, PASSWORD: string) {
     //parametros de todo lo que se tiene que enviar
     let registerData: SendUsuario = {
       NAME,

@@ -13,7 +13,16 @@ GET http://localhost:3000/api/name HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "asd"
+  "name": "loki"
+}
+
+//obtener por nombre
+###
+GET http://localhost:3000/api/mail HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "usr@o.com"
 }
 
 //agregar usuario

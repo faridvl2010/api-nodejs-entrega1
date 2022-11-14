@@ -17,6 +17,17 @@ export class UserServices {
     return this.http.get<Usuario[]>(this.URL_API+"page/"+index);
   }
 
+  getUsersByName(index: String) {
+    var dato = []
+    dato.push({
+      "name": index
+    })
+    JSON.stringify(dato);
+    
+    // return this.http.get<Usuario[]>(this.URL_API+"/name"+index, 
+    // );
+  }
+
   registerUser(NAME: string, LAST_NAME: string, EMAIL: string, TYPE_DOCUMENT: string, DOCUMENT: string, PASSWORD: string) {
     //parametros de todo lo que se tiene que enviar
     let registerData: SendUsuario = {

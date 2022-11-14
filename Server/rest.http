@@ -13,7 +13,22 @@ GET http://localhost:3000/api/name HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Farid"
+  "name": "asd"
+}
+
+//agregar usuario
+###
+POST   http://localhost:3000/api/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "NAME": "usr",
+  "LAST_NAME": "0",
+  "EMAIL": "usr@o.com",
+  "TYPE_DOCUMENT": "cc",
+  "DOCUMENT": "001",
+  "STATE": "a",
+  "PASSWORD":"123450"
 }
 
 # ###

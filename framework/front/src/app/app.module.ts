@@ -14,9 +14,8 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { NewRoleComponent } from './new-role/new-role.component';
 
 const appRoutes:Routes=[
-  
-  {path: 'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
+  {path: 'home',component:HomeComponent},
   {path:'assignRolesAdmin',component:AssignRolesAdminComponent},
   {path:'viewUser',component:ViewUserComponent},
   {path:'registerUser',component:RegisterUserComponent},  

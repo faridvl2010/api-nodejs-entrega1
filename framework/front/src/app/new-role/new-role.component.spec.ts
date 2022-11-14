@@ -11,7 +11,6 @@ describe('NewRoleComponent', () => {
       declarations: [ NewRoleComponent ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(NewRoleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

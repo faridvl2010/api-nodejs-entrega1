@@ -10,7 +10,7 @@ import { UserServices } from '../services/user-services.service'
 export class RegisterUserComponent implements OnInit {
 
 
-  constructor(private userService: UserServices){}
+  constructor(private userService: UserServices) { }
 
   ngOnInit(): void {
     // this.userService.getUsers().subscribe(
@@ -25,21 +25,29 @@ export class RegisterUserComponent implements OnInit {
   //   this.router.navigate(['home'])
   // }
 
-  sendData(values:any) {
-    
-    alert('Las contraseñas no coinciden')
-    if(String(values.PasswordOne) == String(values.PasswordTwo)){
-      // this.userService.registerUser(
-      //   values.names,
-      //   values.apellidos,
-      //   values.Email,
-      //   values.type,
-          
-      // )
-      console.log(values.type)
+  sendData(values: any) {
+
+    if (values.type == "") {
+      alert('ingresa el tipo de documento')
     }
-    else {
-      alert('Las contraseñas no coinciden')
+    if (values.names == "" || values.apellidos == "" || values.Email == "" || values.docNum == "" || values.PasswordOne == "") {
+      alert('faltan campos por llenar')
+    }
+    else{
+      if (String(values.PasswordOne) == String(values.PasswordTwo)) {
+        this.userService.registerUser(
+          values.names,
+          values.apellidos,
+          values.Email,
+          values.type,
+          ""+values.docNum,
+          values.PasswordOne,
+        )
+        console.log(values.type)
+      }
+      else {
+        alert('Las contraseñas no coinciden')
+      }
     }
   }
 

@@ -16,7 +16,7 @@ export class UserServices {
   }
 
 
-  registerUser(NAME:String,LAST_NAME:String, EMAIL:String, TYPE_DOCUMENT:string, DOCUMENT:string, STATE:string, PASSWORD:string ){
+  registerUser(NAME:String,LAST_NAME:String, EMAIL:String, TYPE_DOCUMENT:string, DOCUMENT:String, PASSWORD:string ){
     //parametros de todo lo que tiene que enviar
     let registerData:SendUsuario= {
     NAME,
@@ -24,7 +24,7 @@ export class UserServices {
     EMAIL,
     TYPE_DOCUMENT,
     DOCUMENT,
-    STATE, 
+    STATE:"a" , 
     PASSWORD
   }
   this.http.post( this.URL_API,registerData).

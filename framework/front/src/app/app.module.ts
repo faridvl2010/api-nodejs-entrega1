@@ -11,6 +11,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { NewRoleComponent } from './new-role/new-role.component';
 
 const appRoutes:Routes=[
   
@@ -19,7 +20,8 @@ const appRoutes:Routes=[
   {path:'assignRolesAdmin',component:AssignRolesAdminComponent},
   {path:'viewUser',component:ViewUserComponent},
   {path:'registerUser',component:RegisterUserComponent},  
-  {path:'adminUsers',component:AdminUsersComponent}
+  {path:'adminUsers',component:AdminUsersComponent},
+  {path:'newRol',component:NewRoleComponent},
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes:Routes=[
     AssignRolesAdminComponent,
     HomeComponent,
     RegisterUserComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
+    NewRoleComponent
   ],
   imports: [
     BrowserModule,

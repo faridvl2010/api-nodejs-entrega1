@@ -15,10 +15,10 @@
   <div class="row">
 
     <div class="col-md-11">
-      <input class="form-control" id="myInput" type="text" placeholder="Buscar por nombre" name="search">
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar por nombre" name="filterPost" [(ngModel)]="filterPost">
     </div>
     <div class="col-md-1">
-      <button class="btn btn-info" ng-click={{userService.getUsersByName(search)}}>consultar</button>
+      <button class="btn btn-info">consultar</button>
     </div>
   </div>
   <br>
@@ -33,7 +33,7 @@
       </tr>
     </thead>
     <tbody id="myTable">
-      <tr *ngFor="let user of userService.users">
+      <tr *ngFor="let user of userService.users  | filter:filterPost">
         <td>{{user.NAME}}</td>
         <td>{{user.LAST_NAME}}</td>
         <td>{{user.EMAIL}}</td>

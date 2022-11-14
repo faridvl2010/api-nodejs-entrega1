@@ -23,7 +23,7 @@ export class UserServices {
       "name": index
     })
     JSON.stringify(dato);
-    
+
     // return this.http.get<Usuario[]>(this.URL_API+"/name"+index, 
     // );
   }

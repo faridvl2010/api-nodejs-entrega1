@@ -8,6 +8,7 @@ import { UserServices } from '../services/user-services.service'
 })
 export class AdminUsersComponent implements OnInit {
 
+  filterPost = '';
   constructor(public userService: UserServices) { }
 
   ngOnInit(): void {

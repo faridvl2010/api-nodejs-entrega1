@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { SendUsuario, GetUsuario } from '../models/Usuario';
+import { Usuario, SendUsuario, GetUsuario } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,10 @@ export class UserServices {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get(this.URL_API);
+  // users = Usuario[]
+
+  getUsers(index: String) {
+    return this.http.get(this.URL_API+"page/"+index);
   }
 
   registerUser(NAME: String, LAST_NAME: String, EMAIL: String, TYPE_DOCUMENT: string, DOCUMENT: String, PASSWORD: string) {

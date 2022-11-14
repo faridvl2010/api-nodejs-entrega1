@@ -9,5 +9,6 @@ export interface Usuario {
     PASSWORD:string;
 }
 
+export interface Usuario {}
 export interface SendUsuario extends Omit<Usuario,'ID_USUARIOS'> {}
 export interface GetUsuario extends Omit<Usuario,'ID_USUARIOS' | 'NAME' | 'LAST_NAME' | 'TYPE_DOCUMENT' | 'DOCUMENT' | 'STATE'> {}

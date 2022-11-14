@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserServices){}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(
-      res => console.log(res)
-    )
+    // this.userService.getUsers().subscribe(
+    //   res => console.log(res)
+    // )
   }
   // constructor() { }
 

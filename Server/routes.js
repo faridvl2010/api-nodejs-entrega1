@@ -11,16 +11,18 @@ routes.use(express.urlencoded({ extended: false }))
 const cors = require('cors')
 routes.use(cors())
 
-//TRAER USUARIO
-routes.get('/', async (req, res) => {
-    const get = await prisma.usuarios.findUnique({
-        where: {
-            ID_USUARIOS: id
-        }
-    })
-    res.send(get)
-})
+//TRAER USUARIO por id
+// routes.get('/', async (req, res) => {
+//     const id = req.body.id
+//     const get = await prisma.usuarios.findUnique({
+//         where: {
+//             ID_USUARIOS: id
+//         }
+//     })
+//     res.send(get)
+// })
 
+//traer usuario por nombre
 routes.get('/name', async (req, res) => {
     const name = req.body.name
     const get = await prisma.usuarios.findMany({
@@ -43,7 +45,7 @@ routes.get('/name', async (req, res) => {
 // })
 
 
-//INSTERAR NUEVO con contraseña 
+//INSTERAR NUEVO usuario con contraseña 
 routes.post('/', async (req, res) => {
     console.log('llega')
     const { NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE, PASSWORD } = req.body
@@ -122,18 +124,6 @@ routes.get('/pageActive/:num', async (req, res) => {
         take: 100,
         skip: min,
         where: {STATE: "a"}
-      })
-    res.send(get)
-})
-
-//Obtener historial de usuario
-routes.get('/page/:num', async (req, res) => {
-    const page = req.params.num
-    const min = ((page-1)*100)-1
-    const max = ((page*100)-1)
-    const get = await prisma.usuarios.findMany({
-        take: max,
-        skip: min
       })
     res.send(get)
 })

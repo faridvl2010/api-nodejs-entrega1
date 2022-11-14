@@ -13,8 +13,6 @@ export class LoginService {
     return this.http.get(this.URL_API)
   }
   registerLogin(EMAIL: String, PASSWORD:String){
-    let registerData
+   
   }
-  
 }
-

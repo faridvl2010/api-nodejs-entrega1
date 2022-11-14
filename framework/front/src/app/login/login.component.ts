@@ -18,8 +18,16 @@ export class LoginComponent implements OnInit {
         //   values.Email,
         //   values.PasswordOne,
         // )
-        console.log(values.Email)
-        console.log(values.pass)
+        try {
+          console.log(values.Email)
+          console.log(values.pass)
+          if (values.Email == "" || values.pass == "" || values.Email == "" ) {
+            alert('Faltan campos por llenar')
+          }
+        } catch (error) {
+          
+        }
+        
   }
 
 }

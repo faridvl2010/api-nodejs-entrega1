@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { NewRoleComponent } from './new-role/new-role.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginService } from './services/login.service';
 
 const appRoutes:Routes=[
   {path:'login',component:LoginComponent},
@@ -42,7 +43,9 @@ const appRoutes:Routes=[
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

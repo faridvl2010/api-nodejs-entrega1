@@ -195,21 +195,20 @@ routes.get('/userRol', async (req, res) => {
     res.send(get)
 })
 
-
-/*
 //SIGN
 routes.route('/login').post(async (req, res) => {
     try {
         const { EMAIL, PASSWORD } = req.body
         const search = await routes.findOne({ EMAIL })
         const tokesession = await verifyToken(req.body)
+        const data = await routes.query('SELECT * FROM users EMAIL = ?')
     } catch (error) {
     }
-    //jwt.sign({data},'secretKey',{expiresIn: '60s'},(err,token)=>{
-    //    res.json({
-    //        token
-    //   })
-    //})
+    jwt.sign({data},'secretKey',{expiresIn: '86400s'},(err,token)=>{
+      res.json({
+           token
+          })
+        })
 })
 
 //Authorizacion: Bearer <token>
@@ -235,5 +234,5 @@ routes.post("/api/posts", verifyToken, (req, res) => {
         }
     })
 })
-*/
+
 module.exports = routes

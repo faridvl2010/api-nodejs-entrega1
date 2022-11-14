@@ -5,11 +5,10 @@ import { SECRET } from "../config.js";
 
 export const signupHandler = async (req, res) => {
   try {
-    const { Name, EMAIL, password, roles } = req.body;
+    const {  EMAIL, password, roles } = req.body;
 
     // Creating a new User Object
     const newUser = new User({
-      Name,
       EMAIL,
       password,
     });

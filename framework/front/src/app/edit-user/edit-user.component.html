@@ -1,0 +1,39 @@
+<div class="wrapper fadeInDown  p-3 mb-2 bg-dark">
+    <div id="formContent">
+      <div>
+        <h1 class="text-dark">Editar usuario</h1>
+      </div>
+      <div class="card" >
+       <form action="form-1">
+        <ul class="list-group list-group-flush">
+            <div class="panel panel-default">
+                <li class="list-group-item panel-body">Nombre
+                    <p> <input type="text" id="login" class="fadeIn second" name="Email" placeholder="Mostrar nombre"ngModel></p>
+                </li>
+            </div>
+            <div class="panel panel-default">
+                <li class="list-group-item panel-body">Apellido
+                    <p><input type="text" id="login" class="fadeIn second" name="Email" placeholder="Mostrar Apellido"ngModel></p>
+                </li>
+            </div>    
+            <div class="panel panel-default">
+                <li class="list-group-item panel-body">Correo
+                    <p><input type="text" id="login" class="fadeIn second" name="Email" placeholder="Mostrar  correo"ngModel></p>
+                </li>
+            </div>    
+            <div class="panel panel-default">
+                <li class="list-group-item panel-body">Estado
+                    <p><select class="form-control" name="type" ngModel>
+                        <option name="A">Activo</option>
+                        <option name="I">Inactivo</option>
+                        <option name="O">Otro</option>
+                      </select> </p>
+                </li>
+            </div>
+            <input type="submit" class="btn btn-success" value="Editar ">
+            <input type="submit" class="btn btn-danger" value="Descartar">        
+        </ul>
+        </form>
+      </div>
+    </div>
+  </div>

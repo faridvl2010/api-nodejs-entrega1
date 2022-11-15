@@ -25,7 +25,7 @@ export class AdminUsersComponent implements OnInit {
     )
   }
 
-  deleteUser(id:string){
+  deleteUser(id:number){
     if(confirm('estas seguro de que quieres eliminarlo?')){
       this.userService.deleteUser(id)
     }

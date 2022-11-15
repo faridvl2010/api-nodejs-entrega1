@@ -14,6 +14,10 @@ export interface UserLogin{
     PASSWORD:String
 }
 
+export interface id{
+    ID_USUARIOS:number
+}
+
 export interface Usuario {}
 export interface SendLogUsuario  {}
 export interface SendUsuario extends Omit<Usuario,'ID_USUARIOS'> {}

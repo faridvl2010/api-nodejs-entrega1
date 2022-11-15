@@ -9,7 +9,7 @@ const bcryptjs = require('bcryptjs')
 routes.use(express.urlencoded({ extended: false }))
 const cors = require('cors')
 routes.use(cors())
-const{SignJWT} = require('jose')
+// const{SignJWT} = require('jose')
 const { Router } = require('express')
 //TRAER USUARIO por id
 // routes.get('/', async (req, res) => {

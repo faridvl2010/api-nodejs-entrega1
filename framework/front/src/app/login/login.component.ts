@@ -23,12 +23,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLogin(){
-   /* const formValue = this.loginForm.value;
-    this.LoginService.Login(formValue).subscribe((res)=>{
-      if (res) {
-        this.router.navigate([''])
-      }
-    })*/
+    
+  //  const formValue = this.loginForm.value;
+  //   this.LoginService.Login(formValue).subscribe((res)=>{
+  //     if (res) {
+  //       this.router.navigate([''])
+  //     }
+  //   })
   }
   sendData(values: any) {
         // this.userService.logUser(

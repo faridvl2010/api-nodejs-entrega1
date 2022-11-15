@@ -7,10 +7,10 @@ const encryp = require('bcryptjs')
 routes.use(express.json())
 const bcryptjs = require('bcryptjs')
 routes.use(express.urlencoded({ extended: false }))
-
 const cors = require('cors')
 routes.use(cors())
-
+const{SignJWT} = require('jose')
+const { Router } = require('express')
 //TRAER USUARIO por id
 // routes.get('/', async (req, res) => {
 //     const id = req.body.id
@@ -221,7 +221,7 @@ routes.get('/userRol', async (req, res) => {
     res.send(get)
 })
 
-//SIGN
+/*//SIGN
 routes.route('/login').post(async (req, res) => {
     try {
         const { EMAIL, PASSWORD } = req.body
@@ -260,5 +260,21 @@ routes.post("/api/posts", verifyToken, (req, res) => {
         }
     })
 })
+*/
 
+/*
+routes.post("/login"),(req,res)=>{
+const{EMAIL,PASSWORD}=req.body;
+if(!EMAIL||!PASSWORD)return res.sendStatus(400)
+try {
+    const{guid} = authByEmailPwd(EMAIL,PASSWORD)
+    const jwt = jwtConstructor.setProtectedHeader({alg: 'hs256',typ:'jwt'})
+    .setIssuedAt()
+    .setExpirationTime('1h').sign(procces.HASH)
+
+} catch (error) {
+    return res.sendStatus(401)
+}
+}
+*/
 module.exports = routes

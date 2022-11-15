@@ -14,15 +14,20 @@ export class NewRoleComponent implements OnInit {
 
   }
 
-  createRol(values: any){
+  createRol(values: any) {
+    if (values.names == "" || values.desc == "" ) {
+      alert('faltan campos por llenar')
+    }
+    else {
 
-    return this.rolesService.registerRol(
-      values.names,
-      values.desc,
-    )
+      return this.rolesService.registerRol(
+        values.names,
+        values.desc,
+      )
+    }
   }
 
-  discardRol(){
+  discardRol() {
 
   }
 

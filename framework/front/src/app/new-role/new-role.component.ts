@@ -19,7 +19,6 @@ export class NewRoleComponent implements OnInit {
       alert('faltan campos por llenar')
     }
     else {
-
       return this.rolesService.registerRol(
         values.names,
         values.desc,

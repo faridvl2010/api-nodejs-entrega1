@@ -1,7 +1,7 @@
 import { GetUser } from './../models/UsuarioLog';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import{UserLogin, Usuario} from'./../models/Usuario';
+import{UserLogin, Usuario,SendLogUsuario} from'./../models/Usuario';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
 import{JwtHelperService} from '@auth0/angular-jwt'
 const helper = new JwtHelperService()
@@ -57,5 +57,12 @@ get isLogged():Observable<boolean>{
     }
     window.alert(errorMessage)
     return throwError(errorMessage)
+  }
+   registerLog( EMAIL: string, PASSWORD: string) {
+    //parametros de todo lo que se tiene que enviar
+    let registerData: SendLogUsuario = {
+      EMAIL ,
+      PASSWORD
+    }
   }
 }

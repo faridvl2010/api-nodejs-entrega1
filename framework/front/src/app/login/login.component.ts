@@ -1,3 +1,4 @@
+import { UserLogin } from './../models/Usuario';
 import { Router } from '@angular/router';
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,14 +11,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm = this.fb.group({
-   EMAIL: [''],
-   PASSWORD: ['']
-  });
-  constructor(private userService: UserServices,
-    private LoginService:LoginService,
-    private fb:FormBuilder,
-    private router: Router
+  constructor(private LoginService:LoginService
     ) { }
 
   ngOnInit(): void {
@@ -36,15 +30,15 @@ export class LoginComponent implements OnInit {
         //   values.Email,
         //   values.PasswordOne,
         // )
-        try {
-        console.log(values.Email)
+         console.log(values.Email)
          console.log(values.pass)
          if (values.Email == "" || values.pass == "") {
            alert('Faltan campos por llenar')
+         }else {
+          this.LoginService.registerLog(
+            values.EMAIL,
+            values.PASSWORD
+          )
          }
-       } catch (error) { 
-       }
- }
-
-
+   }
 }

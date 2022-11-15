@@ -7,7 +7,7 @@ import { RolCreater, Rol } from '../models/Rol';
 })
 export class RolesService {
 
-  URL_API = 'http://localhost:3000/api/rol'
+  URL_API = 'https://ms-ussers.herokuapp.com/api/rol'
   roles : Rol[] = [];
 
   constructor(private http: HttpClient) { }

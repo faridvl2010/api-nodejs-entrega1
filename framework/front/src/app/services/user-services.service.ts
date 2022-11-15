@@ -6,8 +6,8 @@ import { Usuario, SendUsuario, GetUsuario, id } from '../models/Usuario';
   providedIn: 'root'
 })
 export class UserServices {
-  URL_API = 'http://localhost:3000/api/'
-  URL_API_DISABLE = 'http://localhost:3000/api/delete/'
+  URL_API = 'https://ms-ussers.herokuapp.com/api/'
+  URL_API_DISABLE = 'https://ms-ussers.herokuapp.com/api/delete/'
   
   users : Usuario[] = [];
   constructor(private http: HttpClient) { }

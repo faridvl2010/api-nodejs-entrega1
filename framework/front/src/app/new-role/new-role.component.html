@@ -4,18 +4,18 @@
         <h1 class="text-dark">Administracion de roles</h1>
       </div>
       <!-- Login Form -->
-      <form>
+      <form #useForm = "ngForm" (ngSubmit)="createRol(useForm.value)">
         <div class="form-outline">
           <input type="text" id="form6Example1" class="form-control" name="names"  ngModel/>
           <label class="form-label" for="form6Example1">Nombre del rol</label>
         </div>
-        <div class="form-outline" name="desc">
-          <textarea class="form-control p-3 sm-1 bg-light text-dark " rows="7" cols="2"></textarea>
+        <div class="form-outline text-center align-items-center" name="desc">
+          <textarea class="form-control p-3 sm-1 bg-light text-dark" style="margin: 2vh; max-width: 92%; " name="desc" ngModel></textarea>
           <!-- <input type="Textarea" id="form6Example1" class="form-control" name="names"  ngModel/> -->
           <label class="form-label" for="form6Example1">Descripcion del rol</label>
         </div>
-        <input type="submit" class="btn btn-success fadeIn fourth md-12" value="Crear rol"><p></p>
-        <input type="submit" class="btn btn-danger fadeIn fourth md-12" value="Descartar">
+        <input type="submit" class="btn btn-success fadeIn fourth md-12" value="Crear rol" ><p></p>
       </form>
+        <input type="submit" class="btn btn-danger fadeIn fourth md-12" value="Descartar">
     </div>
   </div>

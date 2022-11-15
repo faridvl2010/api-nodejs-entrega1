@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RolesService } from '../services/roles.service'
 
 @Component({
   selector: 'app-new-role',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewRoleComponent implements OnInit {
 
-  constructor() { }
+  constructor(public rolesService: RolesService) { }
 
   ngOnInit(): void {
+
+  }
+
+  createRol(values: any){
+
+    return this.rolesService.registerRol(
+      values.names,
+      values.desc,
+    )
+  }
+
+  discardRol(){
+
   }
 
 }

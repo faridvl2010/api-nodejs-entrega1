@@ -8,6 +8,7 @@ import { UserServices } from '../services/user-services.service'
 })
 export class AdminUsersComponent implements OnInit {
 
+  modalSwitch = false;
   filterPost = '';
   constructor(public userService: UserServices) { }
 
@@ -22,6 +23,17 @@ export class AdminUsersComponent implements OnInit {
         this.userService.users = res;
       }
     )
+  }
+
+  deleteUser(id:string){
+    if(confirm('estas seguro de que quieres eliminarlo?')){
+      this.userService.deleteUser(id)
+    }
+  }
+
+  editUser(){
+    // alert('editando a:')
+    this.modalSwitch=true
   }
 
 }

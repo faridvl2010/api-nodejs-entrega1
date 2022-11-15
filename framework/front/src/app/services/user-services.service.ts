@@ -7,6 +7,7 @@ import { Usuario, SendUsuario, GetUsuario } from '../models/Usuario';
 })
 export class UserServices {
   URL_API = 'http://localhost:3000/api/'
+  URL_API_DISABLE = 'http://localhost:3000/api/delete/'
   
   users : Usuario[] = [];
   constructor(private http: HttpClient) { }
@@ -40,11 +41,17 @@ export class UserServices {
       PASSWORD
     }
 
-
+    
+    
     this.http.post(this.URL_API, registerData).
-      subscribe(res => {
-        alert(res)
-      })
+    subscribe(res => {
+      alert(res)
+    })
+  }
+  deleteUser(ID:String){
+    // console.log(`${this.URL_API+"delete"}/${ID}`)
+    this.http.patch(`${this.URL_API_DISABLE}${ID}`,{});
+    console.log("enviado")
   }
 
   // pendiente conexion con login

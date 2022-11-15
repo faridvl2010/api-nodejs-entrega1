@@ -80,6 +80,7 @@ routes.post('/', async (req, res) => {
 routes.patch('/:id', async (req, res) => {
     const { NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body
     const id = Number(req.params.id)
+    
     // const get = await prisma.usuarios.findUnique({
     //     where: {
     //         ID_USUARIOS: id
@@ -104,6 +105,31 @@ routes.patch('/:id', async (req, res) => {
     })
 })
 
+//Eliminar usuario
+routes.patch('/delete/:id', async (req, res) => {
+    console.log('entra')
+    const id = Number(req.params.id)
+    const ip = req.socket.remoteAddress.split("::ffff:");
+    var findIP = "192.178.1.0"
+    const update = await prisma.usuarios.update({
+        where: {
+            ID_USUARIOS: id,
+        },
+        data: {
+            STATE: "d"
+        }
+    })
+
+    const post = await prisma.historic_usuario.create({
+        data: {
+            ID_USUARIOS: id, DATE: new Date(), IP: ""+ip,
+            PREV_DATA: "State : a", CURRENT_DATA: "State: d",
+        }
+    })
+    console.log(update)
+    console.log(post)
+})
+
 //ACTUALIZAR ESTADO de un atributo
 routes.patch('/:id', (req, res) => {
     let id = Number(req.params.id)
@@ -121,8 +147,8 @@ routes.get('/page/:num', async (req, res) => {
     const page = req.params.num
     const min = ((page-1)*100)
     const get = await prisma.usuarios.findMany({
-        take: 10,
-        skip: min
+        // take: 10,
+        // skip: min
       })
     res.send(get)
 })

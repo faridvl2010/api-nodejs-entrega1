@@ -14,6 +14,7 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { NewRoleComponent } from './new-role/new-role.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginService } from './services/login.service';
+import { ModalComponent } from './modal/modal.component';
 
 const appRoutes:Routes=[
   {path:'login',component:LoginComponent},
@@ -23,6 +24,7 @@ const appRoutes:Routes=[
   {path:'registerUser',component:RegisterUserComponent},  
   {path:'adminUsers',component:AdminUsersComponent},
   {path:'newRol',component:NewRoleComponent},
+  {path:'editUser',component:NewRoleComponent},
 ];
 
 @NgModule({
@@ -35,7 +37,8 @@ const appRoutes:Routes=[
     RegisterUserComponent,
     AdminUsersComponent,
     NewRoleComponent,
-    FilterPipe
+    FilterPipe,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

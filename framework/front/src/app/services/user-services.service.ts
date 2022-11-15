@@ -40,14 +40,14 @@ export class UserServices {
       STATE: "a",
       PASSWORD
     }
-
-    
     
     this.http.post(this.URL_API, registerData).
     subscribe(res => {
       alert(res)
     })
   }
+
+  
   deleteUser(ID:String){
     // console.log(`${this.URL_API+"delete"}/${ID}`)
     this.http.patch(`${this.URL_API_DISABLE}${ID}`,{});

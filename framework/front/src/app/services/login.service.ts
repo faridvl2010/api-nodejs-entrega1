@@ -37,7 +37,7 @@ get isLogged():Observable<boolean>{
   }
   private checkToken(){
     const UserToken =  localStorage.getItem('PASSWORD')
-    const isExpired = helper.isTokenExpired('PASSWORD')
+    const isExpired = helper.isTokenExpired()
     console.log('isExpired',isExpired)
     if(isExpired){
       this.logout()

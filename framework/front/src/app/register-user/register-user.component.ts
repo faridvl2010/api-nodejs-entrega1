@@ -43,7 +43,6 @@ export class RegisterUserComponent implements OnInit {
           ""+values.docNum,
           values.PasswordOne,
         )
-        console.log(values.type)
       }
       else {
         alert('Las contraseñas no coinciden')

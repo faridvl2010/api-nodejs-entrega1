@@ -80,7 +80,7 @@ routes.post('/', async (req, res) => {
 routes.patch('/:id', async (req, res) => {
     const { NAME, LAST_NAME, EMAIL, TYPE_DOCUMENT, DOCUMENT, STATE } = req.body
     const id = Number(req.params.id)
-    
+
     // const get = await prisma.usuarios.findUnique({
     //     where: {
     //         ID_USUARIOS: id
@@ -99,18 +99,24 @@ routes.patch('/:id', async (req, res) => {
 
     const post = await prisma.historic_usuario.create({
         data: {
-            ID_USUARIOS: id, DATE: new Date(), IP: (findIP+'IP: '),
-            PREV_DATA: ""+update, CURRENT_DATA: ""+update,
+            ID_USUARIOS: id, DATE: new Date(), IP: (findIP + 'IP: '),
+            PREV_DATA: "" + update, CURRENT_DATA: "" + update,
         }
     })
 })
 
 //Eliminar usuario
-routes.patch('/delete/:id', async (req, res) => {
+routes.patch('/delete/', async (req, res) => {
+    // routes.patch('/delete/:id', async (req, res) => {
     console.log('entra')
-    const id = Number(req.params.id)
+
+    // const id = 0
+    // if (req.body) {
+    const id = parseInt(req.body)
+    // } else {
+    //     id = parseInt(req.params.id)
+    // }
     const ip = req.socket.remoteAddress.split("::ffff:");
-    var findIP = "192.178.1.0"
     const update = await prisma.usuarios.update({
         where: {
             ID_USUARIOS: id,
@@ -122,7 +128,7 @@ routes.patch('/delete/:id', async (req, res) => {
 
     const post = await prisma.historic_usuario.create({
         data: {
-            ID_USUARIOS: id, DATE: new Date(), IP: ""+ip,
+            ID_USUARIOS: id, DATE: new Date(), IP: "" + ip,
             PREV_DATA: "State : a", CURRENT_DATA: "State: d",
         }
     })
@@ -145,29 +151,29 @@ routes.patch('/:id', (req, res) => {
 //Obtener páginas de usuarios
 routes.get('/page/:num', async (req, res) => {
     const page = req.params.num
-    const min = ((page-1)*100)
+    const min = ((page - 1) * 100)
     const get = await prisma.usuarios.findMany({
         // take: 10,
         // skip: min
-      })
+    })
     res.send(get)
 })
 
 //Obtener página de usuario activo
 routes.get('/pageActive/:num', async (req, res) => {
     const page = req.params.num
-    const min = ((page-1)*100)
+    const min = ((page - 1) * 100)
     const get = await prisma.usuarios.findMany({
         take: 100,
         skip: min,
-        where: {STATE: "a"}
-      })
+        where: { STATE: "a" }
+    })
     res.send(get)
 })
 
 //Agregar rol
 routes.post('/rol', async (req, res) => {
-    const { NAME, DESCRIPTION, STATE} = req.body
+    const { NAME, DESCRIPTION, STATE } = req.body
     const post = await prisma.rol.create({
         data: {
             NAME, DESCRIPTION, STATE, CREATION_DATE: new Date()
@@ -184,17 +190,17 @@ routes.get('/rols', async (req, res) => {
 
 //obtener rol por id
 routes.get('/rol', async (req, res) => {
-    const { ID_ROL} = req.body
+    const { ID_ROL } = req.body
     const get = await prisma.rol.findMany({
-        where:{ID_ROL: ID_ROL}
+        where: { ID_ROL: ID_ROL }
     })
 })
 
 //editar rol
 routes.patch('/rol', async (req, res) => {
-    const { ID_ROL, NAME, DESCRIPTION, STATE} = req.body
+    const { ID_ROL, NAME, DESCRIPTION, STATE } = req.body
     const set = await prisma.rol.update({
-        where:{ID_ROL: ID_ROL},
+        where: { ID_ROL: ID_ROL },
         data: {
             NAME, DESCRIPTION, STATE
         }
@@ -202,11 +208,11 @@ routes.patch('/rol', async (req, res) => {
 })
 
 //agregar rol a un usuario
-routes.post('/userRol', async (req, res) =>{
-    const { ID_USUARIOS, ID_ROL, STATE} = req.body
+routes.post('/userRol', async (req, res) => {
+    const { ID_USUARIOS, ID_ROL, STATE } = req.body
     const post = await prisma.ussers_rol.create({
         data: {
-            CREATION_DATE: new Date(), STATE, ID_USUARIOS, ID_ROL,  
+            CREATION_DATE: new Date(), STATE, ID_USUARIOS, ID_ROL,
         }
     })
     console.log(post)
@@ -214,9 +220,9 @@ routes.post('/userRol', async (req, res) =>{
 
 //ver roles de un usuario
 routes.get('/userRol', async (req, res) => {
-    const { ID_USUARIOS} = req.body
+    const { ID_USUARIOS } = req.body
     const get = await prisma.ussers_rol.findMany({
-        where:{ID_USUARIOS: ID_USUARIOS}
+        where: { ID_USUARIOS: ID_USUARIOS }
     })
     res.send(get)
 })

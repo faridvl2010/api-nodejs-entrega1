@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Usuario, SendUsuario, GetUsuario } from '../models/Usuario';
+import { Usuario, SendUsuario, GetUsuario, id } from '../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -48,10 +48,15 @@ export class UserServices {
   }
 
   
-  deleteUser(ID:String){
+  deleteUser(ID_USUARIOS:number){
     // console.log(`${this.URL_API+"delete"}/${ID}`)
-    this.http.patch(`${this.URL_API_DISABLE}${ID}`,{});
-    console.log("enviado")
+    const localURL =""+this.URL_API_DISABLE+ID_USUARIOS
+    let idr: id ={
+      ID_USUARIOS
+    }
+    this.http.patch(`${this.URL_API+"delete"}/${ID_USUARIOS}`,idr)
+    this.http.patch(this.URL_API_DISABLE, idr)
+    console.log(localURL)
   }
 
   // pendiente conexion con login

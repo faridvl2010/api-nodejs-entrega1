@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Tabla de roles</h2>
+  
+  <br>
+  
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Rol</th>
+        <th>Descripcion</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr id="let rol ">
+        <td>Administrador</td>
+        <td>Rol de administrador</td>
+        <td>
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <input type="submit" class="btn btn-success" value="Editar ">
+            </div>
+            <div class="col-md-3">              
+                <input type="submit" class="btn btn-danger" value="Atras"> 
+            </div>
+          </div>
+        </td>
+        <!-- <td>{{user.TYPE_DOCUMENT}} : {{user.DOCUMENT}}</td> -->
+      </tr>
+      <tr id="let rol ">
+        <td>Usuario</td>
+        <td>Rol de usuario</td>
+        <td>
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <input type="submit" class="btn btn-success" value="Editar ">
+            </div>
+            <div class="col-md-3">              
+                <input type="submit" class="btn btn-danger" value="Atras"> 
+            </div>
+          </div>
+        </td>
+        <!-- <td>{{user.TYPE_DOCUMENT}} : {{user.DOCUMENT}}</td> -->
+      </tr>
+
+      
+        <!-- <ul class="pagination ">
+            <li><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a></li>
+            <li><a>4</a></li>
+            <li><a>5</a></li>
+        </ul> -->
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

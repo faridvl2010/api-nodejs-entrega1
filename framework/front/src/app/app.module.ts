@@ -16,7 +16,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginService } from './services/login.service';
 import { ModalComponent } from './modal/modal.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-
+import { EditRolComponent } from './edit-rol/edit-rol.component';
+import { AdminRolComponent } from './admin-rol/admin-rol.component';
 const appRoutes:Routes=[
   {path:'login',component:LoginComponent},
   {path: 'home',component:HomeComponent},
@@ -26,6 +27,8 @@ const appRoutes:Routes=[
   {path:'adminUsers',component:AdminUsersComponent},
   {path:'newRol',component:NewRoleComponent},
   {path:'editUser',component:EditUserComponent},
+  {path:'editRol',component:EditRolComponent},
+  {path:'adminRol',component:AdminRolComponent}
 ];
 
 @NgModule({
@@ -40,7 +43,9 @@ const appRoutes:Routes=[
     NewRoleComponent,
     FilterPipe,
     ModalComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditRolComponent,
+    AdminRolComponent
   ],
   imports: [
     BrowserModule,
